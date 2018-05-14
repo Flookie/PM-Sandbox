@@ -12,6 +12,7 @@ function windowResized() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  sliders.push(new Slider(20, 20, 75, 275))
   //buttons.push(new Button(20, 20, 275, 75, function(){console.log('clicked');}));
 }
 
@@ -28,5 +29,8 @@ function draw() {
   background(35)
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].show();
+  }
+  for (let i = 0; i < sliders.length; i++) {
+    sliders[i].show();
   }
 }
