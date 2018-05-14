@@ -1,4 +1,5 @@
 var buttons = [];
+var sliders = [];
 var particles = [];
 var fields = [];
 
@@ -11,7 +12,16 @@ function windowResized() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  buttons.push(new Button(20, 20, 275, 75, null));
+  //buttons.push(new Button(20, 20, 275, 75, function(){console.log('clicked');}));
+}
+
+function mousePressed() {
+  for (let i = 0; i < buttons.length; i++) {
+    b = buttons[i]
+    if (b.isClicked(mouseX, mouseY)) {
+      b.do();
+    }
+  }
 }
 
 function draw() {

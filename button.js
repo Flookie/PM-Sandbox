@@ -6,20 +6,29 @@ class Button {
     this.w = width;
     this.h = height;
     this.on_click = on_click;
+    this.lock = false;
+    this.hide = false;
   }
 
   do() {
-    return this.onclick();
+    if (!this.lock) {
+      return this.on_click();
+    }
   }
 
   isClicked(x, y) {
-    console.log('clicked')
-    return (this.x < x < this.x + this.w) and (this.y < y < this.y + h)
+    return (this.x < x && x < this.x + this.w) && (this.y < y && y < this.y + this.h);
   }
 
   show() {
-    fill(200);
-    noStroke();
-    rect(this.x, this.y, this.w, this.h);
+    if (!this.hide) {
+      if (this.lock) {
+        //different colour and text to indicate locked button
+      } else {
+        fill(200);
+        noStroke();
+        rect(this.x, this.y, this.w, this.h);
+      }
+    }
   }
 }
