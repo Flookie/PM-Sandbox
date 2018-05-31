@@ -1,3 +1,5 @@
+//Button module by Marcus Belcastro
+//This object/class is an interfaceable button that executes functionality on-click
 
 class Button {
   constructor(posx, posy, width, height, on_click, text) {
@@ -32,7 +34,7 @@ class Button {
       noStroke();
       rect(this.x, this.y, this.w, this.h);
       textAlign(CENTER);
-      textSize(16);
+      textSize(T_SIZE);
       fill(TEXT_COL);
       text(this.label, this.x, this.y)
     }
