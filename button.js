@@ -1,18 +1,20 @@
 
 class Button {
-  constructor(posx, posy, width, height, on_click) {
-    this.x = posx;
-    this.y = posy;
-    this.w = width;
-    this.h = height;
-    this.on_click = on_click;
-    this.lock = false;
-    this.hide = false;
+  constructor(posx, posy, width, height, on_click, text) {
+    this.x = posx
+    this.y = posy
+    this.w = width
+    this.h = height
+    this.on_click = on_click
+    this.state = null
+    this.lock = false
+    this.hide = false
+    this.label = text
   }
 
-  do() {
+  do(arg) {
     if (!this.lock) {
-      return this.on_click();
+      this.state = this.on_click(arg);
     }
   }
 
@@ -23,12 +25,16 @@ class Button {
   show() {
     if (!this.hide) {
       if (this.lock) {
-        //different colour and text to indicate locked button
+        fill(LOCK_COL)
       } else {
-        fill(200);
-        noStroke();
-        rect(this.x, this.y, this.w, this.h);
+        fill(BASE_COL);
       }
+      noStroke();
+      rect(this.x, this.y, this.w, this.h);
+      textAlign(CENTER);
+      textSize(16);
+      fill(TEXT_COL);
+      text(this.label, this.x, this.y)
     }
   }
 }
