@@ -6,33 +6,33 @@ class Particle {
     this.x = posx
     this.y = posy
     this.mass = mass
-    this.v = vector(v0x, v0y)   //velocity
-    this.a = vector(0, 0)			  //acceleration
-    this.f = vector(0, 0)			  //force
+    this.v = createVector(v0x, v0y)   //velocity
+    this.a = createVector(0, 0)			  //acceleration
+    this.f = createVector(0, 0)			  //force
     this.frozen = false
     this.showVectors = false
     this.vectPointer = vectType
   }
 
-  function applyField(field) {
+  applyField(field) {
     this.a.add(field.a)
     this.f.add(field.f)
   }
 
-  function calcPos() {
+  calcPos() {
     this.x += this.v.x
     this.y += this.v.y
   }
 
-  function calcVelocity() {
+  calcVelocity() {
     this.v.add(this.a)
   }
 
-  function calcAcceleration() {
-    this.a.add(vector(this.f.x / this.mass, this.f.y / this.mass))
+  calcAcceleration() {
+    this.a.add(createVector(this.f.x / this.mass, this.f.y / this.mass))
   }
 
-  function update() {
+  update() {
     if (!this.frozen) {
       this.calcAcceleration()
       this.calcVelocity()
@@ -44,12 +44,12 @@ class Particle {
         this.v.y *= -1
       }
       this.show()
-      this.a = vector(0, 0)
-      this.f = vector(0, 0)
+      this.a = createVector(0, 0)
+      this.f = createVector(0, 0)
     }
   }
 
-  function getVector() {
+  getVector() {
     if (this.vectPointer == VEL) {
       return this.v
     } else if (this.vectPointer == ACC) {
@@ -59,7 +59,7 @@ class Particle {
     }
   }
 
-  function show() {
+  show() {
     fill(P_COL)
     ellipse(this.x, this.y, P_RAD)
     if (this.showVectors) {
