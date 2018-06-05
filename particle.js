@@ -61,13 +61,14 @@ class Particle {
 
   show() {
     fill(P_COL)
+    noStroke()
     ellipse(this.x, this.y, P_RAD)
     if (this.showVectors) {
-      vect = this.getVector
-      tempx = vect.x
-      tempy = vect.y
-      coeffx = tempx * V_SCALE
-      coeffy = tempy * V_SCALE
+      let vect = this.getVector()
+      let tempx = vect.x
+      let tempy = vect.y
+      let coeffx = tempx * V_SCALE
+      let coeffy = tempy * V_SCALE
       strokeWeight(V_STROKE)
       stroke(V_COL)
       line(this.x, this.y, this.x+coeffx, this.y)
@@ -75,12 +76,14 @@ class Particle {
       if (tempx != 0 && tempy != 0) {
         stroke(HYP_COL[0], HYP_COL[1], HYP_COL[2])
         line(this.x, this.y, this.x+coeffx, this.y+coeffy)
-        theta = invtan(abs(tempy/tempx))
+        let theta = atan(abs(tempy/tempx))
         textSize(T_SIZE)
-        //the operations with tempy here determine whether to place the theta
-        //text above or below the particle based on the sign of the vertical
-        //component of the vector.
-        text('°', this.x, 10*(tempy/abs(tempy)))
+        fill(HYP_COL[0], HYP_COL[1], HYP_COL[2])
+        noStroke()
+        //the operations with tempy and tempx here determine whether to place
+        //the theta text above or below or left or right of the particle based
+        //on the sign of the vertical and horizontal components of the vector.
+        text(round(theta) + '°', this.x-50*(tempx/abs(tempx)), this.y-50*(tempy/abs(tempy)))
       }
     }
   }

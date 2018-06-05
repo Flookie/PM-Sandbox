@@ -23,10 +23,10 @@ var ACC = 'A'
 var FCE = 'F'
 
 // Numerical constants
-var P_RAD = 3                    //particle radius
-var V_SCALE = 1                  //vector scale
+var P_RAD = 20                   //particle radius
+var V_SCALE = 10                 //vector scale
 var V_STROKE = 5                 //vector stroke weight
-var T_SIZE = 16                  //text size
+var T_SIZE = 30                  //text size
 var SPACE = 100                  //spacing of field lines
 
 // Function to fix scrollbars on the canvas
@@ -38,11 +38,12 @@ function windowResized() {
 
 function setup() {
   angleMode(DEGREES)
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight)
   //sliders.push(new Slider(20, 20, 75, 275))
-  //buttons.push(new Button(20, 20, 275, 75, test, 'TEXT'));
-  fields.push(new Field(2, 0, 0))
-  fields[0].hide = false
+  //buttons.push(new Button(20, 20, 275, 75, test, 'TEXT'))
+  //fields.push(new Field(2, 0, 0))
+  //particles.push(new Particle(100, 100, 12.35, 3.4385, 10, VEL))
+  //particles[0].showVectors = true
 }
 
 function mousePressed() {
@@ -58,7 +59,9 @@ function draw() {
   background(BG_COL)
   for (let i = 0; i < fields.length; i++) {
     fields[i].show()
-    fields[i].theta += 1
+  }
+  for (let i = 0; i < particles.length; i++) {
+    particles[i].update()
   }
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].show()
