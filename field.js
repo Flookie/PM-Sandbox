@@ -2,10 +2,13 @@
 // Object/class that manages fields relating to physical phenomena
 
 class Field {
-              //set slider to 0-360
   constructor(aMag, fMag, angle) {
-    this.a = p5.Vector.fromAngle(angle, aMag)
-    this.f = p5.Vector.fromAngle(angle, fMag)
+    //The following function was added as the fromAngle function takes radians.
+    //It converts the provided angle to radians while also reversing it which
+    //fixes the true direction to that relative to the observer.
+    let toRadians = function(a) {return -a*(PI/180);}
+    this.a = p5.Vector.fromAngle(toRadians(angle), aMag)
+    this.f = p5.Vector.fromAngle(toRadians(angle), fMag)
     this.theta = angle
     this.hide = true
   }
@@ -13,6 +16,8 @@ class Field {
   show() {
     if (!this.hide) {
       stroke(F_COL)
+      strokeWeight(F_SIZE)
+      //case where the angle is between 45-135 and 225-315 degrees
       if ((this.theta >= 45 && this.theta <= 135) || (this.theta >= 225 && this.theta <= 315)) {
         let hlfLine = height / 2
         let endpoint = hlfLine * tan(this.theta-90)
@@ -21,6 +26,7 @@ class Field {
           let lnEnd = dist + endpoint
           line(lnStart, 0, lnEnd, height)
         }
+      //all other cases
       } else {
         let hlfLine = width / 2
         let endpoint = hlfLine * tan(this.theta)

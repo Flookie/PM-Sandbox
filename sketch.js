@@ -27,7 +27,8 @@ var P_RAD = 20                   //particle radius
 var V_SCALE = 10                 //vector scale
 var V_STROKE = 5                 //vector stroke weight
 var T_SIZE = 30                  //text size
-var SPACE = 100                  //spacing of field lines
+var SPACE = 200                  //spacing of field lines
+var F_SIZE = 2                   //stroke weight of field lines
 
 // Function to fix scrollbars on the canvas
 function windowResized() {
@@ -41,32 +42,44 @@ function setup() {
   createCanvas(windowWidth, windowHeight)
   //sliders.push(new Slider(20, 20, 75, 275))
   //buttons.push(new Button(20, 20, 275, 75, test, 'TEXT'))
-  //fields.push(new Field(2, 0, 0))
-  //particles.push(new Particle(100, 100, 12.35, 3.4385, 10, VEL))
-  //particles[0].showVectors = true
+  fields.push(new Field(0, 1, 321))
+  fields[0].hide = false
+  particles.push(new Particle(100, 100, 0, 0, 10, VEL))
+  particles[0].showVectors = true
 }
 
 function mousePressed() {
+  //handle button presses
   for (let i = 0; i < buttons.length; i++) {
-    b = buttons[i]
-    if (b.isClicked(mouseX, mouseY)) {
-      b.do(b)
+    if (buttons[i].isClicked(mouseX, mouseY)) {
+      buttons[i].do(buttons[i])
     }
   }
 }
 
 function draw() {
   background(BG_COL)
+  //show all the fields
   for (let i = 0; i < fields.length; i++) {
     fields[i].show()
   }
+
+  //show all particles and apply all fields to particles
   for (let i = 0; i < particles.length; i++) {
+    for (let j = 0; j < fields.length; j++) {
+      particles[i].applyField(fields[j])
+    }
     particles[i].update()
   }
+
+  //show all buttons
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].show()
   }
+
+  //show all sliders
   for (let i = 0; i < sliders.length; i++) {
     sliders[i].show()
   }
+
 }

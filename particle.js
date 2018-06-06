@@ -37,13 +37,29 @@ class Particle {
       this.calcAcceleration()
       this.calcVelocity()
       this.calcPos()
-      if (this.x < 0 || this.x > width) {
+      //Check whether the particle hits the left or right side of the viewport
+      //The original pseudocode had to be split up into an if-else-if statement
+      //to fix a bug where the particle left the viewport
+      if (this.x < 0) {
         this.v.x *= -1
+        this.x = 0
+      } else if (this.x > width) {
+        this.v.x *= -1
+        this.x = width
       }
-      if (this.y < 0 || this.y > height) {
+
+      //Check whether the particle hits the top or bottom of the viewport
+      if (this.y < 0) {
         this.v.y *= -1
+        this.y = 0
+      } else if (this.y > height) {
+        this.v.y *= -1
+        this.y = height
       }
+
+      //show the particle
       this.show()
+      //erase vectors after showing them
       this.a = createVector(0, 0)
       this.f = createVector(0, 0)
     }
