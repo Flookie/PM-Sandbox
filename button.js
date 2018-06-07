@@ -36,7 +36,7 @@ class Button {
       textAlign(CENTER);
       textSize(T_SIZE);
       fill(TEXT_COL);
-      text(this.label, this.x, this.y)
+      text(this.label, this.x+this.w/2, this.y+this.h/1.6)
     }
   }
 }
