@@ -33,7 +33,6 @@ var F_SIZE = 2                   //stroke weight of field lines
 // Function to fix scrollbars on the canvas
 function windowResized() {
   resizeCanvas(1, 1)
-  createStatic()
   setTimeout(function() {resizeCanvas(windowWidth, windowHeight);}, 20);
 }
 
@@ -41,11 +40,11 @@ function setup() {
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight)
   //sliders.push(new Slider(20, 20, 75, 275))
-  //buttons.push(new Button(20, 20, 275, 75, test, 'TEXT'))
-  fields.push(new Field(0, 1, 321))
-  fields[0].hide = false
-  particles.push(new Particle(100, 100, 0, 0, 10, VEL))
-  particles[0].showVectors = true
+  //buttons.push(new Button(200, 200, 275, 75, function() {console.log("Clicked");}, 'TEXT'))
+  //fields.push(new Field(0.1, 1, 440))
+  //fields[0].hide = false
+  //particles.push(new Particle(0, 0, 1, 0, 10, VEL))
+  //particles[0].showVectors = true
 }
 
 function mousePressed() {
