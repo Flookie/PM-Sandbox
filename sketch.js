@@ -39,14 +39,14 @@ function windowResized() {
 function setup() {
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight)
-  //sliders.push(new Slider(20, 20, 75, 475, 25, 125))
+  sliders.push(new Slider(20, 20, 75, 475, 25, 125))
   //buttons.push(new Button(200, 200, 275, 75, function() {console.log("Clicked");}, 'TEXT'))
-  //fields.push(new Field(0, 1, 270))
+  fields.push(new Field(0, 1, 270))
   //fields[0].hide = false
-  //particles.push(new Particle(100, height, 3, 10, 10, VEL))
-  //particles.push(new Particle(100, height, 3, 6, 20, VEL))
-  //particles[0].showVectors = true
-  //particles[1].showVectors = true
+  particles.push(new Particle(100, height, 3, 10, 10, VEL))
+  particles.push(new Particle(100, height, 3, 6, 20, VEL))
+  particles[0].showVectors = true
+  particles[1].showVectors = true
 }
 
 function mousePressed() {
@@ -56,6 +56,12 @@ function mousePressed() {
       buttons[i].do(buttons[i])
     }
   }
+  for (let i = 0; i < sliders.length; i++) {
+    sliders[i].checkClicked()
+  }
+}
+
+function mouseDragged() {
   for (let i = 0; i < sliders.length; i++) {
     sliders[i].checkClicked()
   }

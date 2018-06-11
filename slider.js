@@ -19,7 +19,14 @@ class Slider {
   }
 
   calcSliderPos() {
-    this.secslide_y = mouseY - this.halfheight;
+    this.secslide_y = mouseY - this.halfheight
+    let lower = this.endRange - this.halfheight
+    let higher = this.startRange - this.halfheight
+    if (this.secslide_y > lower) {
+      this.secslide_y = lower
+    } else if (this.secslide_y < higher) {
+      this.secslide_y = higher
+    }
   }
 
   calcState() {
@@ -31,7 +38,10 @@ class Slider {
   }
 
   checkClicked() {
-    if (!this.lock) {
+    let x = mouseX
+    let y = mouseY
+    if (!this.lock && (this.primslide_x < x && x < this.primslide_x + this.primslide_w)
+        && (this.primslide_y < y && y < this.primslide_y + this.primslide_h)) {
       this.calcSliderPos()
       this.calcState()
     }
