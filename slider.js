@@ -8,12 +8,14 @@ class Slider {
     this.secslide_x = posx
     this.secslide_y = posy
     this.secslide_d = width
-    this.halfheight = height / 2
-    this.maxrange = range_max          //input value later
-    this.minrange = range_min           //input value later
+    this.halfheight = width / 2
+    this.maxrange = range_max
+    this.minrange = range_min
     this.lock = false
     this.hide = false
     this.state = range_min
+    this.startRange = posy + this.halfheight
+    this.endRange = posy + height - this.halfheight
   }
 
   calcSliderPos() {
@@ -21,8 +23,11 @@ class Slider {
   }
 
   calcState() {
-    normalisevalue = lerp(this.primslide_y + this.halfheight, this.primslide_y + this.primslide_h - this.halfheight, this.secslide_y);
-    this.state = (normalisevalue * (this.maxrange - this.minrange)) + this.minrange;
+    //The following is from a code segment from an existing project made
+    //by one of the developers to solve a similar issue.
+    this.state = (((this.secslide_y+this.halfheight - this.startRange)
+                  * (this.maxrange - this.minrange)) /
+                  (this.endRange - this.startRange)) + this.minrange
   }
 
   checkClicked() {
@@ -34,7 +39,7 @@ class Slider {
 
   show() {
     stroke(255);
-    if (this.lock = true) {
+    if (this.lock == true) {
       fill(100, 0, 0);
     } else {
       fill(200, 0, 0);
