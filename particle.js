@@ -94,7 +94,7 @@ class Particle {
         line(this.x, this.y, this.x+coeffx, this.y+coeffy)
         let theta = atan(abs(tempy/tempx))
         textSize(T_SIZE)
-        fill(HYP_COL[0], HYP_COL[1], HYP_COL[2])
+        fill(HYP_COL)
         noStroke()
         //the operations with tempy and tempx here determine whether to place
         //the theta text above or below or left or right of the particle based

@@ -6,6 +6,8 @@ var buttons = []
 var sliders = []
 var particles = []
 var fields = []
+var context = null
+var titleImg
 
 // Colours
 var BG_COL = 35                  //background
@@ -16,6 +18,12 @@ var P_COL = 150                  //particle
 var V_COL = 255                  //vector
 var HYP_COL = [255, 117, 26]     //hypotenuse
 var F_COL = 255                  //field lines
+var SL_VEL = [0, 200, 0]         //velocity slider
+var SL_ACC = [200, 0, 0]         //acceleration slider
+var SL_FCE = [0, 0, 200]         //force slider
+var SL_ANG = [0, 125, 125]       //angle slider
+var SL_OTH = [125, 125, 0]       //default slider
+var SL_STK = 255                 //slider stroke
 
 //Vector character codes
 var VEL = 'V'
@@ -36,17 +44,21 @@ function windowResized() {
   setTimeout(function() {resizeCanvas(windowWidth, windowHeight);}, 20);
 }
 
+function preload() {
+  titleImg = loadImage('motion_sandbox.png');
+}
+
 function setup() {
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight)
-  sliders.push(new Slider(20, 20, 75, 475, 25, 125))
+  //sliders.push(new Slider(20, 20, 75, 475, 25, 125))
   //buttons.push(new Button(200, 200, 275, 75, function() {console.log("Clicked");}, 'TEXT'))
-  fields.push(new Field(0, 1, 270))
+  //fields.push(new Field(0, 1, 270))
   //fields[0].hide = false
-  particles.push(new Particle(100, height, 3, 10, 10, VEL))
-  particles.push(new Particle(100, height, 3, 6, 20, VEL))
-  particles[0].showVectors = true
-  particles[1].showVectors = true
+  //particles.push(new Particle(100, height, 3, 10, 10, VEL))
+  //particles.push(new Particle(100, height, 3, 6, 20, VEL))
+  //particles[0].showVectors = true
+  //particles[1].showVectors = true
 }
 
 function mousePressed() {
@@ -69,6 +81,13 @@ function mouseDragged() {
 
 function draw() {
   background(BG_COL)
+  //execute simulation preset or navigation
+  if (context == null) {
+    setupNav()
+  } else {
+    context()
+  }
+
   //show all the fields
   for (let i = 0; i < fields.length; i++) {
     fields[i].show()
@@ -91,5 +110,4 @@ function draw() {
   for (let i = 0; i < sliders.length; i++) {
     sliders[i].show()
   }
-
 }

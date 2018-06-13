@@ -48,11 +48,11 @@ class Slider {
   }
 
   show() {
-    stroke(255);
+    stroke(SL_STK);
     if (this.lock == true) {
-      fill(100, 0, 0);
+      fill(LOCK_COL);
     } else {
-      fill(200, 0, 0);
+      fill(SL_OTH);
     }
     rect(this.primslide_x, this.primslide_y, this.primslide_w,
       this.primslide_h, 10);
