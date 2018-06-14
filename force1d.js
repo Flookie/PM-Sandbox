@@ -6,7 +6,28 @@ function setupForce1D() {
   particles = []
   fields = []
   //Set up referential variables for positions
+  boxw = 250
+  boxh = 100
+  sliderw = 65
+  sliderh = 425
+  particlex = width/2
+  particley = height/2
+  boxleft = width/8 - boxw/2
+  boxmiddle = width/2 - boxw/2
+  boxright = width - width/8 - boxw/2
+  boxtop = height/8 - boxh/2
+  sliderleft = width/8 - boxw/2
+  sliderright = width/6 - boxw/3
+  slidertop = height/2 - sliderh/2
   //Add objects with referential coordinates
+  buttons.push(new Button(boxleft, boxtop, boxw, boxh, function() {console.log("Clicked");}, 'Toggle Vectors'))
+  buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, function() {console.log("Clicked");}, 'Pause/Play'))
+  buttons.push(new Button(boxright, boxtop, boxw, boxh, function() {console.log("Clicked");}, 'Reset'))
+  sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 100, 1000))
+  sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, -10, 10))
+  particles.push(new Particle(particlex, particley, 0, 0, sliders[0].state, FCE))
+  fields.push(new Field(0, sliders[1].state, 0))
+  particles[0].showVectors = true
   //Make the context the simulation function
   context = Force1D
 }
@@ -14,4 +35,6 @@ function setupForce1D() {
 //This will be called every frame
 function Force1D() {
   //simulation stuff
+  particles[0].mass = sliders[0].state
+  fields[0].f = createVector(sliders[1].state, 0)
 }

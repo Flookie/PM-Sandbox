@@ -29,10 +29,11 @@ class Button {
       if (this.lock) {
         fill(LOCK_COL)
       } else {
-        fill(BASE_COL);
+        fill(BUT_COL);
       }
-      noStroke();
-      rect(this.x, this.y, this.w, this.h);
+      stroke(BUT_STK);
+      strokeWeight(1);
+      rect(this.x, this.y, this.w, this.h, 10);
       textAlign(CENTER);
       textSize(T_SIZE);
       fill(TEXT_COL);

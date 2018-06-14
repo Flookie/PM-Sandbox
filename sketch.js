@@ -8,10 +8,12 @@ var particles = []
 var fields = []
 var context = null
 var titleImg
+var backgroundImg
 
 // Colours
 var BG_COL = 35                  //background
-var BASE_COL = 200               //base button/slider
+var BUT_COL = [255, 255, 255]        //base button
+var BUT_STK = [0, 0, 0]        //button stroke
 var LOCK_COL = 75                //locked button/slider
 var TEXT_COL = 20                //button/slider text
 var P_COL = 150                  //particle
@@ -45,7 +47,7 @@ function windowResized() {
 }
 
 function preload() {
-  titleImg = loadImage('motion_sandbox.png');
+  titleImg = loadImage('https://raw.githubusercontent.com/Flookie/Physics-Motion-Sandbox/master/motion_sandbox.png');
 }
 
 function setup() {
