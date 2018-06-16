@@ -34,9 +34,10 @@ class Particle {
 
   update() {
     if (!this.frozen) {
-      this.calcAcceleration()
-      this.calcVelocity()
-      this.calcPos()
+        this.calcAcceleration()
+        this.calcVelocity()
+        this.calcPos()
+      }
       //Check whether the particle hits the left or right side of the viewport
       //The original pseudocode had to be split up into an if-else-if statement
       //to fix a bug where the particle left the viewport
@@ -62,7 +63,6 @@ class Particle {
       //erase vectors after showing them
       this.a = createVector(0, 0)
       this.f = createVector(0, 0)
-    }
   }
 
   getVector() {

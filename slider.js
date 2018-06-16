@@ -1,6 +1,6 @@
 
 class Slider {
-  constructor(posx, posy, width, height, range_min, range_max) {
+  constructor(posx, posy, width, height, range_min, range_max, colour) {
     this.primslide_x = posx
     this.primslide_y = posy
     this.primslide_w = width
@@ -16,6 +16,7 @@ class Slider {
     this.state = range_min
     this.startRange = posy + this.halfheight
     this.endRange = posy + height - this.halfheight
+    this.colour = colour
   }
 
   calcSliderPos() {
@@ -52,7 +53,7 @@ class Slider {
     if (this.lock == true) {
       fill(LOCK_COL);
     } else {
-      fill(SL_OTH);
+      fill(this.colour);
     }
     rect(this.primslide_x, this.primslide_y, this.primslide_w,
       this.primslide_h, 10);

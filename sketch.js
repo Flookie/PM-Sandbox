@@ -24,6 +24,7 @@ var SL_VEL = [0, 200, 0]         //velocity slider
 var SL_ACC = [200, 0, 0]         //acceleration slider
 var SL_FCE = [0, 0, 200]         //force slider
 var SL_ANG = [0, 125, 125]       //angle slider
+var SL_MSS = [255, 0, 100]       //mass slider
 var SL_OTH = [125, 125, 0]       //default slider
 var SL_STK = 255                 //slider stroke
 
