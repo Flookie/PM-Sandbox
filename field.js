@@ -6,7 +6,6 @@ class Field {
     //The following function was added as the fromAngle function takes radians.
     //It converts the provided angle to radians while also reversing it which
     //fixes the true direction to that relative to the observer.
-    let toRadians = function(a) {return -a*(PI/180);}
     this.a = p5.Vector.fromAngle(toRadians(angle), aMag)
     this.f = p5.Vector.fromAngle(toRadians(angle), fMag)
     this.theta = angle

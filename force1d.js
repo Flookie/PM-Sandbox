@@ -21,8 +21,8 @@ function setupForce1D() {
   sliderright = sliderleft + spacing
   slidertop = height/2 - sliderh/2
   //Add objects with referential coordinates
-  buttons.push(new Button(boxleft, boxtop, boxw, boxh, function() {particles[0].showVectors = !particles[0].showVectors;}, 'Toggle Vectors'))
-  buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, function() {particles[0].frozen = !particles[0].frozen;}, 'Pause/Play'))
+  buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
+  buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))
   buttons.push(new Button(boxright, boxtop, boxw, boxh, reset1D, 'Reset'))
   sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 100, 1000, SL_MSS))
   sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, -10, 10, SL_FCE))

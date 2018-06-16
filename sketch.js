@@ -114,3 +114,21 @@ function draw() {
     sliders[i].show()
   }
 }
+
+//Global functions for simulations
+function toRadians(a) {return -a*(PI/180);}
+
+function showVectors() {
+  for (let i = 0; i < particles.length; i++) {
+    particles[i].showVectors = !particles[i].showVectors
+  }
+  for (let i = 0; i < fields.length; i++) {
+    fields[i].hide = !fields[i].hide
+  }
+}
+
+function pausePlay() {
+  for (let i = 0; i < particles.length; i++) {
+    particles[i].frozen = !particles[i].frozen
+  }
+}

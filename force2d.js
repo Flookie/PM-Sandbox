@@ -19,12 +19,12 @@
     sliderright = slidermiddle + spacing
     slidertop = height/2 - sliderh/2
     buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
-    buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, function() {particles[0].frozen = !particles[0].frozen;}, 'Pause/Play'))
+    buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))
     buttons.push(new Button(boxright, boxtop, boxw, boxh, reset2D, 'Reset'))
     sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 100, 1000, SL_MSS))
     sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.01, 10, SL_FCE))
     sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0, 360, SL_ANG))
-    particles.push(new Particle(particlex, particley, 0, 0, FCE))
+    particles.push(new Particle(particlex, particley, 0, 0, sliders[0].state, FCE))
     fields.push(new Field(0, sliders[1].state, sliders[2].state))
     context = Force2D
   }
@@ -32,13 +32,7 @@
   function Force2D() {
     particles[0].mass = sliders[0].state
     fields[0].theta = sliders[2].state
-    let toRadians = function(a) {return -a*(PI/180);} //Fix
     fields[0].f = p5.Vector.fromAngle(toRadians(sliders[2].state), sliders[1].state) //p5.Vector.fromAngle(toRadians(angle), aMag)
-  }
-
-  function showVectors() {
-    particles[0].showVectors = !particles[0].showVectors
-    fields[0].hide = !fields[0].hide
   }
 
   function reset2D() {
