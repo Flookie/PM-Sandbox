@@ -22,8 +22,8 @@
     buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlayProjectile, 'Pause/Play'))
     buttons.push(new Button(boxright, boxtop, boxw, boxh, resetProjectile, 'Reset'))
     sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 0, 90, SL_ANG))
-    sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.5, 15, SL_VEL))
-    sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0.25, 5, SL_ACC))
+    sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.5, 30, SL_VEL))
+    sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0.25, 1, SL_ACC))
     particles.push(new Particle(particlex, particley, 0, 0, 1, VEL))
     fields.push(new Field(sliders[2].state, 0, 270))
     resetProjectile()
@@ -33,6 +33,10 @@
   function ProjectileMotion() {
     fields[0].a = p5.Vector.fromAngle(toRadians(270), sliders[2].state)
     if (particles[0].reset) {
+      particles[0].v = p5.Vector.fromAngle(toRadians(sliders[0].state), sliders[1].state)
+    }
+    if (particles[0].y > height - 200) {
+      particles[0].x = width/4
       particles[0].v = p5.Vector.fromAngle(toRadians(sliders[0].state), sliders[1].state)
     }
   }
