@@ -27,6 +27,7 @@ var SL_ANG = [0, 125, 125]       //angle slider
 var SL_MSS = [255, 0, 100]       //mass slider
 var SL_OTH = [125, 125, 0]       //default slider
 var SL_STK = 255                 //slider stroke
+var LN_STK = [125, 0, 0]         //line for particle origin on projectile simulation
 
 //Vector character codes
 var VEL = 'V'
@@ -54,14 +55,6 @@ function preload() {
 function setup() {
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight)
-  //sliders.push(new Slider(20, 20, 75, 475, 25, 125))
-  //buttons.push(new Button(200, 200, 275, 75, function() {console.log("Clicked");}, 'TEXT'))
-  //fields.push(new Field(0, 1, 270))
-  //fields[0].hide = false
-  //particles.push(new Particle(100, height, 3, 10, 10, VEL))
-  //particles.push(new Particle(100, height, 3, 6, 20, VEL))
-  //particles[0].showVectors = true
-  //particles[1].showVectors = true
 }
 
 function mousePressed() {
