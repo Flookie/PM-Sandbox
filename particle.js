@@ -77,6 +77,7 @@ class Particle {
 
   show() {
     fill(P_COL)
+    textSize(T_SIZE)
     noStroke()
     ellipse(this.x, this.y, P_RAD)
     if (this.showVectors) {
@@ -85,21 +86,23 @@ class Particle {
       let tempy = vect.y
       let coeffx = tempx * V_SCALE
       let coeffy = tempy * V_SCALE
+      fill(V_COL)
+      let xcomp = (-0.001 < tempx && tempx < 0.001) ? 0 : tempx
+      let ycomp = (-0.001 < tempy && tempy < 0.001) ? 0 : tempy
+      text(nfc(xcomp, 2), this.x+coeffx+50*(tempx/abs(tempx)), this.y)
+      text(nfc(-1*ycomp, 2), this.x, this.y+coeffy+50*(tempy/abs(tempy)))
       strokeWeight(V_STROKE)
       stroke(V_COL)
       line(this.x, this.y, this.x+coeffx, this.y)
       line(this.x, this.y, this.x, this.y+coeffy)
       if (tempx != 0 && tempy != 0) {
-        stroke(HYP_COL[0], HYP_COL[1], HYP_COL[2])
+        stroke(HYP_COL)
         line(this.x, this.y, this.x+coeffx, this.y+coeffy)
         let theta = atan(abs(tempy/tempx))
-        textSize(T_SIZE)
         fill(HYP_COL)
         noStroke()
-        //the operations with tempy and tempx here determine whether to place
-        //the theta text above or below or left or right of the particle based
-        //on the sign of the vertical and horizontal components of the vector.
         text(round(theta) + '°', this.x-50*(tempx/abs(tempx)), this.y-50*(tempy/abs(tempy)))
+        text(nfc(vect.mag(), 2), this.x+coeffx+50*(tempx/abs(tempx)), this.y+coeffy+50*(tempy/abs(tempy)))
       }
     }
   }
