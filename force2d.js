@@ -21,11 +21,12 @@
     buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
     buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))
     buttons.push(new Button(boxright, boxtop, boxw, boxh, reset2D, 'Reset'))
-    sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 100, 1000, SL_MSS))
-    sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.01, 10, SL_FCE))
-    sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0, 360, SL_ANG))
+    sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 100, 1000, SL_MSS, MSS))
+    sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.01, 10, SL_FCE, FCE))
+    sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0, 360, SL_ANG, ANG))
     particles.push(new Particle(particlex, particley, 0, 0, sliders[0].state, FCE))
     fields.push(new Field(0, sliders[1].state, sliders[2].state))
+    particles[0].frozen = true
     context = Force2D
   }
 
@@ -39,4 +40,5 @@
     particles[0].x = width/2
     particles[0].y = height/2
     particles[0].v = createVector(0, 0)
+    particles[0].frozen = true
   }

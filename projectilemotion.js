@@ -21,9 +21,9 @@
     buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
     buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlayProjectile, 'Pause/Play'))
     buttons.push(new Button(boxright, boxtop, boxw, boxh, resetProjectile, 'Reset'))
-    sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 0, 90, SL_ANG))
-    sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.5, 30, SL_VEL))
-    sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0.25, 1, SL_ACC))
+    sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 0, 90, SL_ANG, ANG))
+    sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.5, 30, SL_VEL, VEL))
+    sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0.25, 1, SL_ACC, ACC))
     particles.push(new Particle(particlex, particley, 0, 0, 1, VEL))
     fields.push(new Field(sliders[2].state, 0, 270))
     resetProjectile()
@@ -33,8 +33,7 @@
   function ProjectileMotion() {
     inity = height - 200
     strokeWeight(5)
-    //particle trace as specified by the client
-    trace()
+    trace() //particle trace as specified by the client
     stroke(LN_STK)
     line(0, inity, width, inity)
     fields[0].a = p5.Vector.fromAngle(toRadians(270), sliders[2].state)
