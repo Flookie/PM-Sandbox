@@ -12,8 +12,8 @@ var backgroundImg
 
 // Colours
 var BG_COL = 35                  //background
-var BUT_COL = [255, 255, 255]        //base button
-var BUT_STK = [0, 0, 0]        //button stroke
+var BUT_COL = [255, 255, 255]    //base button
+var BUT_STK = [0, 0, 0]          //button stroke
 var LOCK_COL = 75                //locked button/slider
 var TEXT_COL = 20                //button/slider text
 var P_COL = 150                  //particle
@@ -29,18 +29,22 @@ var SL_OTH = [125, 125, 0]       //default slider
 var SL_STK = 255                 //slider stroke
 var LN_STK = [125, 0, 0]         //line for particle origin on projectile simulation
 
-//Vector character codes
-var VEL = 'V'
-var ACC = 'A'
-var FCE = 'F'
+//Value codes
+var VEL = 'Vel.'
+var ACC = 'Acc.'
+var FCE = 'Force'
+var MSS = 'Mass'
+var ANG = 'Angle'
 
 // Numerical constants
 var P_RAD = 20                   //particle radius
 var V_SCALE = 10                 //vector scale
 var V_STROKE = 5                 //vector stroke weight
-var T_SIZE = 30                  //text size
+var T_SIZE = 30                  //large text size
+var SL_T_SIZE = 15               //slider text size
 var SPACE = 200                  //spacing of field lines
 var F_SIZE = 2                   //stroke weight of field lines
+var SL_STROKE = 3                //slider stroke weight
 
 // Function to fix scrollbars on the canvas
 function windowResized() {
