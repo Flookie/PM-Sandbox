@@ -1,6 +1,6 @@
 
 class Slider {
-  constructor(posx, posy, width, height, range_min, range_max, colour) {
+  constructor(posx, posy, width, height, range_min, range_max, colour, label) {
     this.primslide_x = posx
     this.primslide_y = posy
     this.primslide_w = width
@@ -17,6 +17,7 @@ class Slider {
     this.startRange = posy + this.halfheight
     this.endRange = posy + height - this.halfheight
     this.colour = colour
+    this.label = label
   }
 
   calcSliderPos() {
@@ -49,14 +50,25 @@ class Slider {
   }
 
   show() {
-    stroke(SL_STK);
+    stroke(SL_STK)
+    strokeWeight(SL_STROKE)
     if (this.lock == true) {
-      fill(LOCK_COL);
+      fill(LOCK_COL)
     } else {
-      fill(this.colour);
+      fill(this.colour)
     }
-    rect(this.primslide_x, this.primslide_y, this.primslide_w,
-      this.primslide_h, 10);
-    rect(this.secslide_x, this.secslide_y, this.secslide_d, this.secslide_d, 10);
+    rect(this.primslide_x, this.primslide_y, this.primslide_w, this.primslide_h, 10)
+    rect(this.secslide_x, this.secslide_y, this.secslide_d, this.secslide_d, 10)
+
+    noStroke()
+    fill(SL_STK)
+    textAlign(CENTER)
+    textSize(SL_T_SIZE)
+    let xpos = this.secslide_x+(this.secslide_d/2)
+    let ypos = this.secslide_y+(this.secslide_d/2)+5
+    let yposLabel = this.primslide_y-20
+    text(nfc(this.state, 2), xpos, ypos)
+    textSize(T_SIZE)
+    text(this.label, xpos, yposLabel)
   }
 }
