@@ -31,13 +31,18 @@
   }
 
   function ProjectileMotion() {
+    inity = height - 200
+    strokeWeight(5)
+    //particle trace as specified by the client
+    trace()
+    stroke(LN_STK)
+    line(0, inity, width, inity)
     fields[0].a = p5.Vector.fromAngle(toRadians(270), sliders[2].state)
     if (particles[0].reset) {
       particles[0].v = p5.Vector.fromAngle(toRadians(sliders[0].state), sliders[1].state)
     }
-    if (particles[0].y > height - 200) {
-      particles[0].x = width/4
-      particles[0].v = p5.Vector.fromAngle(toRadians(sliders[0].state), sliders[1].state)
+    if (particles[0].y > inity) {
+      resetProjectile()
     }
   }
 
@@ -51,4 +56,24 @@
     particles[0].frozen = true
     particles[0].x = width/4
     particles[0].y = height - 200
+  }
+
+  function trace() {
+    let p = particles[0]
+    if (p.reset) {p.points = [];}
+    else {
+      if (p.points.length < 1) {p.points[0] = [width/4, height - 200];}
+      if (!p.frozen) {
+        p.points.push([p.x, p.y])
+      }
+    }
+
+    stroke(255)
+    if (p.points.length > 1) {
+      let prevPoint = p.points[0]
+      for (let i = 1; i < p.points.length; i++) {
+        line(prevPoint[0], prevPoint[1], p.points[i][0], p.points[i][1])
+        prevPoint = p.points[i]
+      }
+    }
   }
