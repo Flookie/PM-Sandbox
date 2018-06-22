@@ -2,17 +2,16 @@
 // Object/class that manages fields relating to physical phenomena
 
 class Field {
+  //constructor loads constants for the object
   constructor(aMag, fMag, angle) {
-    //The following function was added as the fromAngle function takes radians.
-    //It converts the provided angle to radians while also reversing it which
-    //fixes the true direction to that relative to the observer.
-    this.a = p5.Vector.fromAngle(toRadians(angle), aMag)
-    this.f = p5.Vector.fromAngle(toRadians(angle), fMag)
+    this.a = p5.Vector.fromAngle(toRadians(angle), aMag)    //acceleration
+    this.f = p5.Vector.fromAngle(toRadians(angle), fMag)    //force
     this.theta = angle
     this.hide = true
   }
 
   show() {
+    //if the field is hidden, it will not show
     if (!this.hide) {
       stroke(F_COL)
       strokeWeight(F_SIZE)

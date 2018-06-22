@@ -46,21 +46,24 @@ var SPACE = 200                  //spacing of field lines
 var F_SIZE = 2                   //stroke weight of field lines
 var SL_STROKE = 3                //slider stroke weight
 
-// Function to fix scrollbars on the canvas
+//function to fix scrollbars on the canvas
 function windowResized() {
   resizeCanvas(1, 1)
   setTimeout(function() {resizeCanvas(windowWidth, windowHeight);}, 20);
 }
 
+//fetches the logo before the main program starts
 function preload() {
   titleImg = loadImage('https://raw.githubusercontent.com/Flookie/Physics-Motion-Sandbox/master/motion_sandbox.png');
 }
 
+//create the main viewport
 function setup() {
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight)
 }
 
+//the following is executed when the mouse is clicked
 function mousePressed() {
   //handle button presses
   for (let i = 0; i < buttons.length; i++) {
@@ -68,17 +71,20 @@ function mousePressed() {
       buttons[i].do(buttons[i])
     }
   }
+  //handle clicks on the slider
   for (let i = 0; i < sliders.length; i++) {
     sliders[i].checkClicked()
   }
 }
 
+//also handles clicks on the slider
 function mouseDragged() {
   for (let i = 0; i < sliders.length; i++) {
     sliders[i].checkClicked()
   }
 }
 
+//MAIN LOOP
 function draw() {
   background(BG_COL)
   //execute simulation preset or navigation
@@ -113,6 +119,10 @@ function draw() {
 }
 
 //Global functions for simulations
+
+//The following function was added as the fromAngle function takes radians.
+//It converts the provided angle to radians while also reversing it which
+//fixes the true direction to that relative to the observer.
 function toRadians(a) {return -a*(PI/180);}
 
 function showVectors() {

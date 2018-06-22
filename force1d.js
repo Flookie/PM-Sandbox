@@ -1,11 +1,14 @@
-//This will be called once
+//Force1D functions by Bradley Francis
+//The functions that run the 1 dimensional force simulation
+
+//the setup function which places all objects and sets up the scene
 function setupForce1D() {
-  //Clear all arrays
+  //clear all global objects
   buttons = []
   sliders = []
   particles = []
   fields = []
-  //Set up referential variables for positions
+  //set up referential variables for positions
   spacing = 100
   boxw = 250
   boxh = 100
@@ -20,7 +23,7 @@ function setupForce1D() {
   sliderleft = width/8 - boxw/2
   sliderright = sliderleft + spacing
   slidertop = height/2 - sliderh/2
-  //Add objects with referential coordinates
+  //add objects with referential coordinates
   buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
   buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))
   buttons.push(new Button(boxright, boxtop, boxw, boxh, reset1D, 'Reset'))
@@ -29,15 +32,14 @@ function setupForce1D() {
   particles.push(new Particle(particlex, particley, 0, 0, sliders[0].state, FCE))
   fields.push(new Field(0, sliders[1].state, 0))
   particles[0].frozen = true
-  //Make the context the simulation function
+  //make the context the simulation function
   context = Force1D
 }
 
-//This will be called every frame
+//MAIN FUNCTION
 function Force1D() {
-  //simulation stuff
-  particles[0].mass = sliders[0].state
-  fields[0].f = createVector(sliders[1].state, 0)
+  particles[0].mass = sliders[0].state              //update mass
+  fields[0].f = createVector(sliders[1].state, 0)   //update force
 }
 
  function reset1D() {
