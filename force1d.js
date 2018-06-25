@@ -22,7 +22,7 @@ function setupForce1D() {
   boxtop = height/8 - boxh/2
   sliderleft = width/8 - boxw/2
   sliderright = sliderleft + spacing
-  slidertop = height/2 - sliderh/2
+  slidertop = height/2 - sliderh/3
   //add objects with referential coordinates
   buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
   buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))

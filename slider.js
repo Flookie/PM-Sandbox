@@ -3,25 +3,25 @@
 
 class Slider {
   //constructor loads constants for the object
-  constructor(posx, posy, width, height, range_min, range_max, colour, label) {
+  constructor(posx, posy, Width, Height, range_min, range_max, colour, label) {
     this.primslide_x = posx
     this.primslide_y = posy
-    this.primslide_w = width
-    this.primslide_h = height
+    this.primslide_w = Width
+    this.primslide_h = Height
     this.secslide_x = posx
-    this.secslide_y = posy
-    this.secslide_d = width
-    this.halfheight = width / 2
+    this.secslide_y = (Height / 2) + posy - (Width / 2)
+    this.secslide_d = Width
+    this.halfheight = Width / 2
     this.maxrange = range_max
     this.minrange = range_min
     this.lock = false
     this.hide = false
-    this.state = range_min
+    this.state = (range_min + range_max) / 2
     this.colour = colour
     this.label = label
     //constant pixel values that represent the start and end of the possible value area
     this.startRange = posy + this.halfheight
-    this.endRange = posy + height - this.halfheight
+    this.endRange = posy + Height - this.halfheight
   }
 
   //calculates the new position for the secondary slider based on mouse position
