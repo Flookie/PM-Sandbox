@@ -10,7 +10,7 @@ function setupNav() {
     buttons.push(new Button(left, Top, boxw, boxh, function() {setupForce1D();}, '1D Force'))
     buttons.push(new Button(right, Top, boxw, boxh, function() {setupForce2D();}, '2D Force'))
     buttons.push(new Button(left, bottom, boxw, boxh, function() {setupProjectileMotion();}, 'Projectile Motion'))
-    buttons.push(new Button(right, bottom, boxw, boxh, function() {console.log("Clicked");}, 'Sandbox'))
+    buttons.push(new Button(right, bottom, boxw, boxh, function() {setupSandbox();}, 'Sandbox'))
     context = Nav
   }
 }
