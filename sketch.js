@@ -28,6 +28,7 @@ var SL_MSS = [255, 0, 100]       //mass slider
 var SL_OTH = [125, 125, 0]       //default slider
 var SL_STK = 255                 //slider stroke
 var LN_STK = [125, 0, 0]         //line for particle origin on projectile simulation
+var TITLE_COL = 225              //title text for main screen
 
 //Value codes
 var VEL = 'Vel.'
@@ -45,16 +46,19 @@ var SL_T_SIZE = 15               //slider text size
 var SPACE = 200                  //spacing of field lines
 var F_SIZE = 2                   //stroke weight of field lines
 var SL_STROKE = 3                //slider stroke weight
+var IMG_D = 500                  //pixel dimensions of the splash screen image
+var TITLE_SIZE = 46              //font size of title text
+var FOOT_SIZE = 16               //font size of the footer text
 
 //function to fix scrollbars on the canvas
 function windowResized() {
   resizeCanvas(1, 1)
-  setTimeout(function() {resizeCanvas(windowWidth, windowHeight);}, 20);
+  setTimeout(function() {resizeCanvas(windowWidth, windowHeight);}, 20)
 }
 
 //fetches the logo before the main program starts
 function preload() {
-  titleImg = loadImage('https://raw.githubusercontent.com/Flookie/Physics-Motion-Sandbox/master/motion_sandbox.png');
+  titleImg = loadImage('https://raw.githubusercontent.com/Flookie/Physics-Motion-Sandbox/master/motion_sandbox.png')
 }
 
 //create the main viewport

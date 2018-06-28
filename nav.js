@@ -16,5 +16,15 @@ function setupNav() {
 }
 
 function Nav() {
-  image(titleImg, width/2-titleImg.width/2, height/2-titleImg.height/2)
+  image(titleImg, width/2-IMG_D/2, height/2-IMG_D/2, IMG_D, IMG_D)
+  textAlign(CENTER)
+  fill(TITLE_COL)
+  textSize(TITLE_SIZE)
+  textStyle(BOLD)
+  text("Physics Motion Sandbox", width/2, 75)
+  textStyle(NORMAL)
+  textAlign(LEFT)
+  textSize(FOOT_SIZE)
+  text("Developed by Marcus Belcastro and Bradley Francis under the GNU GPL v3.0 licence",
+        10, height-10)
 }
