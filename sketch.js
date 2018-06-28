@@ -140,8 +140,10 @@ function showVectors(self) {
   return newState
 }
 
-function pausePlay() {
+function pausePlay(self) {
+  newState = !self.state
   for (let i = 0; i < particles.length; i++) {
-    particles[i].frozen = !particles[i].frozen
+    particles[i].frozen = newState
   }
+  return newState
 }
