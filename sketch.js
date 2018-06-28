@@ -125,13 +125,15 @@ function draw() {
 //fixes the true direction to that relative to the observer.
 function toRadians(a) {return -a*(PI/180);}
 
-function showVectors() {
+function showVectors(self) {
+  newState = !self.state
   for (let i = 0; i < particles.length; i++) {
-    particles[i].showVectors = !particles[i].showVectors
+    particles[i].showVectors = newState
   }
   for (let i = 0; i < fields.length; i++) {
-    fields[i].hide = !fields[i].hide
+    fields[i].hide = !newState
   }
+  return newState
 }
 
 function pausePlay() {

@@ -9,7 +9,7 @@ class Button {
     this.w = width
     this.h = height
     this.on_click = on_click
-    this.state = null
+    this.state = false          //default for show vectors button
     this.lock = false
     this.hide = false
     this.label = text

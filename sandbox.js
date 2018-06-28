@@ -28,8 +28,8 @@
     buttons.push(new Button(boxreset, boxtop, boxw, boxh, reset, 'Reset'))
     buttons.push(new Button(boxfield, boxtop, boxw, boxh, newField, 'New Field'))
     sliders.push(new Slider(slidermass, slidertop, sliderw, sliderh, 10, 1000, SL_MSS, MSS))
-    sliders.push(new Slider(slideraccel, slidertop, sliderw, sliderh, 0.1, 1, SL_ACC, ACC))
-    sliders.push(new Slider(slidervel, slidertop, sliderw, sliderh, 0.5, 5, SL_FCE, FCE))
+    sliders.push(new Slider(slideraccel, slidertop, sliderw, sliderh, 0, 1, SL_ACC, ACC))
+    sliders.push(new Slider(slidervel, slidertop, sliderw, sliderh, 0, 5, SL_FCE, FCE))
     sliders.push(new Slider(sliderangle, slidertop, sliderw, sliderh, 0, 360, SL_ANG, ANG))
     context = Sandbox
   }
@@ -39,7 +39,9 @@
   }
 
   function newObject() {
-    particles.push(new Particle(random(width), random(height), 0, 0, sliders[0].state, VEL))
+    newP = new Particle(random(width), random(height), 0, 0, sliders[0].state, VEL)
+    newP.showVectors = buttons[1].state
+    particles.push(newP)
   }
 
   function reset() {
@@ -48,5 +50,7 @@
   }
 
   function newField() {
-    fields.push(new Field(sliders[1].state, sliders[2].state, sliders[3].state))
+    newF = new Field(sliders[1].state, sliders[2].state, sliders[3].state)
+    newF.hide = !buttons[1].state
+    fields.push(newF)
   }
