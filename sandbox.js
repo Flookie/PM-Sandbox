@@ -8,10 +8,10 @@ function setupSandbox() {
   particles = []
   fields = []
   //set up referential variables for positions
-  boxspacing = 275
+  boxspacing = 210
   sliderspacing = 100
-  boxw = 250
-  boxh = 100
+  boxw = 200
+  boxh = 75
   sliderw = 65
   sliderh = 425
   particlex = width/2
@@ -47,6 +47,7 @@ function Sandbox() {}
 function newObject() {
   newP = new Particle(random(width), random(height), 0, 0, sliders[0].state, VEL)
   newP.showVectors = buttons[1].state
+  newP.frozen = buttons[2].state
   particles.push(newP)
 }
 
