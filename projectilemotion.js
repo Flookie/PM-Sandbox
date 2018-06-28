@@ -1,4 +1,4 @@
-//Force2D functions by Bradley Francis, modified by Marcus Belcastro
+//Projectile motion functions by Bradley Francis, modified by Marcus Belcastro
 //The functions that run the projectile motion simulation
 
 function setupProjectileMotion() {
