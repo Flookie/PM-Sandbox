@@ -8,9 +8,9 @@ function setupSandbox() {
   particles = []
   fields = []
   //set up referential variables for positions
-  boxspacing = 210
+  boxspacing = 285
   sliderspacing = 100
-  boxw = 200
+  boxw = 225
   boxh = 75
   sliderw = 65
   sliderh = 425
