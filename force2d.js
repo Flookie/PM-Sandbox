@@ -32,8 +32,9 @@ function setupForce2D() {
   sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0, 360, SL_ANG, ANG))
   particles.push(new Particle(particlex, particley, 0, 0, sliders[0].state, FCE))
   fields.push(new Field(0, sliders[1].state, sliders[2].state))
-  //make the context the simulation function
+  buttons[1].state = true
   particles[0].frozen = true
+  //make the context the simulation function
   context = Force2D
 }
 
@@ -50,4 +51,5 @@ function reset2D() {
   particles[0].y = height/2
   particles[0].v = createVector(0, 0)
   particles[0].frozen = true
+  buttons[1].state = true
 }
