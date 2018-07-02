@@ -8,19 +8,18 @@ function setupSandbox() {
   particles = []
   fields = []
   //set up referential variables for positions
-  boxspacing = 285
   sliderspacing = 100
-  boxw = 225
+  boxw = 215
   boxh = 75
   sliderw = 65
   sliderh = 425
   particlex = width/2
   particley = height/2
   boxobject = width/8 - boxw/2
-  boxvectors = boxobject + boxspacing
-  boxpause = boxvectors + boxspacing
-  boxreset = boxpause + boxspacing
-  boxfield = boxreset + boxspacing
+  boxvectors = width/3.125 - boxw/2
+  boxpause = width/2 - boxw/2
+  boxreset = width - width/3.125 - boxw/2
+  boxfield = width - width/8 - boxw/2
   boxtop = height/8 - boxh/2
   slidermass = width/8 - boxw/2
   sliderangle = boxfield + boxw - sliderw
