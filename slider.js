@@ -41,8 +41,8 @@ class Slider {
     //The following is from a code segment from an existing project made
     //by one of the developers to solve a similar issue.
     this.state = (((this.secslide_y+this.halfheight - this.startRange)
-                  * (this.maxrange - this.minrange)) /
-                  (this.endRange - this.startRange)) + this.minrange
+                  * (this.minrange - this.maxrange)) /
+                  (this.endRange - this.startRange)) + this.maxrange
   }
 
   //handles what happens when the user clicks the slider and checks whether it is clicked
