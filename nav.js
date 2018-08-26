@@ -21,7 +21,7 @@ function Nav() {
   fill(TITLE_COL)
   textSize(TITLE_SIZE)
   textStyle(BOLD)
-  text("Physics Motion Sandbox", width/2, 75)
+  text("Physics Motion Sandbox", width/2, height/10)
   textStyle(NORMAL)
   textAlign(LEFT)
   textSize(FOOT_SIZE)

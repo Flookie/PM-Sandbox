@@ -41,12 +41,12 @@ var ANG = 'Angle'
 var P_RAD = 20                   //particle radius
 var V_SCALE = 10                 //vector scale
 var V_STROKE = 5                 //vector stroke weight
-var T_SIZE = 30                  //large text size
-var SL_T_SIZE = 15               //slider text size
 var SPACE = 200                  //spacing of field lines
 var F_SIZE = 2                   //stroke weight of field lines
 var SL_STROKE = 3                //slider stroke weight
 var IMG_D = 500                  //pixel dimensions of the splash screen image
+var T_SIZE = 30                  //large text size
+var SL_T_SIZE = 15               //slider text size
 var TITLE_SIZE = 46              //font size of title text
 var FOOT_SIZE = 16               //font size of the footer text
 
@@ -65,6 +65,14 @@ function preload() {
 function setup() {
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight)
+
+  //finding a ratio of the screen to relatively size elements
+  let WIN_R = sqrt((width*height) / (1920*1080)) + 0.2
+  T_SIZE *= WIN_R
+  SL_T_SIZE *= WIN_R
+  TITLE_SIZE *= WIN_R
+  FOOT_SIZE *= WIN_R
+  IMG_D *= WIN_R
 }
 
 //the following is executed when the mouse is clicked
