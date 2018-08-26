@@ -9,11 +9,11 @@ function setupForce1D() {
   particles = []
   fields = []
   //set up referential variables for positions
-  spacing = 100
-  boxw = 250
-  boxh = 100
-  sliderw = 65
-  sliderh = 425
+  spacing = width/14
+  boxw = width/6
+  boxh = height/8
+  sliderw = width/25
+  sliderh = height/2
   particlex = width/2
   particley = height/2
   boxleft = width/8 - boxw/2

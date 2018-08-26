@@ -8,11 +8,11 @@ function setupProjectileMotion() {
   particles = []
   fields = []
   //set up referential variables for positions
-  spacing = 100
-  boxw = 250
-  boxh = 100
-  sliderw = 65
-  sliderh = 425
+  spacing = width/16
+  boxw = width/6
+  boxh = height/8
+  sliderw = width/24
+  sliderh = height/2
   particlex = width/4
   particley = height - 200
   boxleft = width/8 - boxw/2

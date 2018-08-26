@@ -1,8 +1,8 @@
 function setupNav() {
   if (buttons.length == 0) {
     buttons = []
-    boxw = 500
-    boxh = 125
+    boxw = width/4
+    boxh = height/8
     left = width/4 - boxw/2
     right = width - width/4 - boxw/2
     Top = height/4 - boxh/2

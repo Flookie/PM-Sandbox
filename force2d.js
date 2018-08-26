@@ -8,28 +8,28 @@ function setupForce2D() {
   particles = []
   fields = []
   //set up referential variables for positions
-  spacing = 100
-  boxw = 250
-  boxh = 100
-  sliderw = 65
-  sliderh = 425
+  spacing = width/14
+  boxwres = width/6
+  boxhres = height/8
+  sliderwres = width/24
+  sliderhres = height/2
   particlex = width/2
   particley = height/2
-  boxleft = width/8 - boxw/2
-  boxmiddle = width/2 - boxw/2
-  boxright = width - width/8 - boxw/2
-  boxtop = height/8 - boxh/2
-  sliderleft = width/8 - boxw/2
+  boxleft = width/8 - boxwres/2
+  boxmiddle = width/2 - boxwres/2
+  boxright = width - width/8 - boxwres/2
+  boxtop = height/8 - boxhres/2
+  sliderleft = width/8 - boxwres/2
   slidermiddle = sliderleft + spacing
   sliderright = slidermiddle + spacing
-  slidertop = height/2 - sliderh/3
+  slidertop = height/2 - sliderhres/3
   //add objects with referential coordinates
-  buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
-  buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))
-  buttons.push(new Button(boxright, boxtop, boxw, boxh, reset2D, 'Reset'))
-  sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 100, 1000, SL_MSS, MSS))
-  sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.01, 10, SL_FCE, FCE))
-  sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0, 360, SL_ANG, ANG))
+  buttons.push(new Button(boxleft, boxtop, boxwres, boxhres, showVectors, 'Toggle Vectors'))
+  buttons.push(new Button(boxmiddle, boxtop, boxwres, boxhres, pausePlay, 'Pause/Play'))
+  buttons.push(new Button(boxright, boxtop, boxwres, boxhres, reset2D, 'Reset'))
+  sliders.push(new Slider(sliderleft, slidertop, sliderwres, sliderhres, 100, 1000, SL_MSS, MSS))
+  sliders.push(new Slider(slidermiddle, slidertop, sliderwres, sliderhres, 0.01, 10, SL_FCE, FCE))
+  sliders.push(new Slider(sliderright, slidertop, sliderwres, sliderhres, 0, 360, SL_ANG, ANG))
   particles.push(new Particle(particlex, particley, 0, 0, sliders[0].state, FCE))
   fields.push(new Field(0, sliders[1].state, sliders[2].state))
   buttons[1].state = true
