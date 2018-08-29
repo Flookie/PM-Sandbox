@@ -9,6 +9,10 @@ function setupSandbox() {
   fields = []
   //set up referential variables for positions
   sliderspacing = width/14
+  backboxh = height/10
+  backboxw = width/8
+  backboxx = 5
+  backboxy = height - backboxh - backboxx
   boxw = width/6
   boxh = height/8
   sliderw = width/24
@@ -31,6 +35,7 @@ function setupSandbox() {
   buttons.push(new Button(boxvectors, boxtop, boxw, boxh, showVectors, 'Show Vectors'))
   buttons.push(new Button(boxpause, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))
   buttons.push(new Button(boxreset, boxtop, boxw, boxh, reset, 'Reset'))
+  buttons.push(new Button(backboxx, backboxy, backboxw, backboxh, function() {context = null}, '← Back'))
   buttons.push(new Button(boxfield, boxtop, boxw, boxh, newField, 'New Field'))
   sliders.push(new Slider(slidermass, slidertop, sliderw, sliderh, 10, 1000, SL_MSS, MSS))
   sliders.push(new Slider(slideraccel, slidertop, sliderw, sliderh, 0, 1, SL_ACC, ACC))

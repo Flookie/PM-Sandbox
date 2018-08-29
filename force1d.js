@@ -10,6 +10,10 @@ function setupForce1D() {
   fields = []
   //set up referential variables for positions
   spacing = width/14
+  backboxh = height/10
+  backboxw = width/8
+  backboxx = 5
+  backboxy = height - backboxh - backboxx
   boxw = width/6
   boxh = height/8
   sliderw = width/25
@@ -27,6 +31,7 @@ function setupForce1D() {
   buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
   buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlay, 'Pause/Play'))
   buttons.push(new Button(boxright, boxtop, boxw, boxh, reset1D, 'Reset'))
+  buttons.push(new Button(backboxx, backboxy, backboxw, backboxh, function() {context = null}, '← Back'))
   sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 100, 1000, SL_MSS, MSS))
   sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, -10, 10, SL_FCE, FCE))
   particles.push(new Particle(particlex, particley, 0, 0, sliders[0].state, FCE))

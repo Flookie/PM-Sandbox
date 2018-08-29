@@ -1,6 +1,8 @@
 function setupNav() {
-  if (buttons.length == 0) {
     buttons = []
+    sliders = []
+    particles = []
+    fields = []
     boxw = width/4
     boxh = height/8
     left = width/4 - boxw/2
@@ -12,7 +14,6 @@ function setupNav() {
     buttons.push(new Button(left, bottom, boxw, boxh, function() {setupProjectileMotion();}, 'Projectile Motion'))
     buttons.push(new Button(right, bottom, boxw, boxh, function() {setupSandbox();}, 'Sandbox'))
     context = Nav
-  }
 }
 
 function Nav() {

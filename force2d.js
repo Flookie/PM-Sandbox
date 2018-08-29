@@ -9,6 +9,10 @@ function setupForce2D() {
   fields = []
   //set up referential variables for positions
   spacing = width/14
+  backboxh = height/10
+  backboxw = width/8
+  backboxx = 5
+  backboxy = height - backboxh - backboxx
   boxwres = width/6
   boxhres = height/8
   sliderwres = width/24
@@ -27,6 +31,7 @@ function setupForce2D() {
   buttons.push(new Button(boxleft, boxtop, boxwres, boxhres, showVectors, 'Toggle Vectors'))
   buttons.push(new Button(boxmiddle, boxtop, boxwres, boxhres, pausePlay, 'Pause/Play'))
   buttons.push(new Button(boxright, boxtop, boxwres, boxhres, reset2D, 'Reset'))
+  buttons.push(new Button(backboxx, backboxy, backboxw, backboxh, function() {context = null}, '← Back'))
   sliders.push(new Slider(sliderleft, slidertop, sliderwres, sliderhres, 100, 1000, SL_MSS, MSS))
   sliders.push(new Slider(slidermiddle, slidertop, sliderwres, sliderhres, 0.01, 10, SL_FCE, FCE))
   sliders.push(new Slider(sliderright, slidertop, sliderwres, sliderhres, 0, 360, SL_ANG, ANG))

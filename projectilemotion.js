@@ -9,6 +9,10 @@ function setupProjectileMotion() {
   fields = []
   //set up referential variables for positions
   spacing = width/16
+  backboxh = height/10
+  backboxw = width/8
+  backboxx = 5
+  backboxy = height - backboxh - backboxx
   boxw = width/6
   boxh = height/8
   sliderw = width/24
@@ -27,6 +31,7 @@ function setupProjectileMotion() {
   buttons.push(new Button(boxleft, boxtop, boxw, boxh, showVectors, 'Toggle Vectors'))
   buttons.push(new Button(boxmiddle, boxtop, boxw, boxh, pausePlayProjectile, 'Pause/Play'))
   buttons.push(new Button(boxright, boxtop, boxw, boxh, resetProjectile, 'Reset'))
+  buttons.push(new Button(backboxx, backboxy, backboxw, backboxh, function() {context = null}, '← Back'))
   sliders.push(new Slider(sliderleft, slidertop, sliderw, sliderh, 0, 90, SL_ANG, ANG))
   sliders.push(new Slider(slidermiddle, slidertop, sliderw, sliderh, 0.5, 30, SL_VEL, VEL))
   sliders.push(new Slider(sliderright, slidertop, sliderw, sliderh, 0.25, 1, SL_ACC, ACC))
